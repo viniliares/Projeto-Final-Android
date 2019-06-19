@@ -95,6 +95,11 @@ public class SolicitacaoActivity extends AppCompatActivity {
         public void onDateSet(DatePicker datePicker, int ano, int mes, int dia) {
 
             btnSelecione.setText(DateTimeUtils.formatDate(dia, mes, ano));
+
+            int dias = Integer.parseInt(spnComboBox.getSelectedItem().toString());
+            Date dataInicio = DateTimeUtils.toDate(btnSelecione.getText().toString());
+            Date dataFim = DateTimeUtils.addDias(dataInicio, dias);
+            btnDataFim.setText(DateTimeUtils.formatDate(dataFim));
         }
     };
 
